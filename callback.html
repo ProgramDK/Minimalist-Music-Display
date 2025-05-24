@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <title>Redirecting...</title>
+</head>
+<body>
+  <script>
+    const code = new URLSearchParams(window.location.search).get("code");
+    const verifier = localStorage.getItem("verifier");
+    fetch("https://accounts.spotify.com/api/token", {
+      method: "POST",
+      headers: { "Content-Type": "application/x-www-form-urlencoded" },
+      body: new URLSearchParams({
+        client_id: "6222e2a1b4ae4f048dcf4c309d63c636",
+        grant_type: "authorization_code",
+        code,
+        redirect_uri: "https://programdk.github.io/Minimalist-Music-Display/callback.html",
+        code_verifier: verifier,
+      }),
+    })
+      .then(res => res.json())
+      .then(data => {
+        localStorage.setItem("access_token", data.access_token);
+        localStorage.setItem("refresh_token", data.refresh_token);
+        window.location.href = "index.html";
+      });
+  </script>
+</body>
+</html>
