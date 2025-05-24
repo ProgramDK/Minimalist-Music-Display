@@ -1,0 +1,40 @@
+<!-- index.html -->
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#000000" />
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="manifest" href="manifest.json" />
+  <title>Minimalist Music Display</title>
+</head>
+<body>
+  <div id="app">
+    <div id="background"></div>
+    <div id="content">
+      <div id="track-info">
+        <img id="cover" alt="Cover oder Künstlerbild" />
+        <h1 id="title">Titel</h1>
+        <h2 id="artist">Künstler</h2>
+        <h3 id="album">Album</h3>
+        <div id="progress">
+          <span id="current-time">0:00</span>
+          <span id="duration">0:00</span>
+        </div>
+      </div>
+    </div>
+    <div id="settings-panel" class="hidden">
+      <h2>Einstellungen</h2>
+      <label><input type="checkbox" id="show-title" checked /> Titel anzeigen</label>
+      <label><input type="checkbox" id="show-artist" checked /> Künstler anzeigen</label>
+      <label><input type="checkbox" id="show-album" checked /> Album anzeigen</label>
+      <label><input type="radio" name="image-type" value="cover" checked /> Cover</label>
+      <label><input type="radio" name="image-type" value="artist" /> Künstlerbild</label>
+      <button id="connect-spotify">Mit Spotify verbinden</button>
+    </div>
+  </div>
+  <script src="auth.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
